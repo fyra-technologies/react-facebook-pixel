@@ -55,7 +55,7 @@ const defaultOptions = {
 //
 export default {
   init(pixelId, advancedMatching = {}, options = defaultOptions) {
-    initialized = (typeof window !== 'undefined') && !!window.fbq;
+    initialized = typeof window !== 'undefined' && !!window.fbq;
     /* eslint-disable */
     !(function(f, b, e, v, n, t, s) {
       if (f.fbq) return;
@@ -89,6 +89,7 @@ export default {
         fbq('set', 'autoConfig', false, pixelId); // eslint-disable-line no-undef
       }
 
+      fbq.disablePushState = true;
       fbq('init', pixelId, advancedMatching); // eslint-disable-line no-undef
 
       initialized = true;
